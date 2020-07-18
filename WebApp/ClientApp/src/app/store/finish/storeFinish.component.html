@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <table class="table-hover table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Value</th>
+            <th>Value</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of products">
+            <td style="width:15%"><img style="width:100%" src="../../../../../files/{{p.fileName}}" alt="Alternate Text" /></td>
+            <td>{{p.description}}</td>
+            <td><input type="number" class="form-control" value="1" (change)="updateValue(p, $event.target.value)"[(ngModel)]="p.quantity" placeholder="1"/></td>
+            <td>{{p.value | number:'1.0-2'}}</td>
+            <td><button class="btn btn-secondary btn-sm" (click)="remove(p)">Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-3">
+      <div class="row">
+        <div class="card" style="width:100%">
+          <div class="card-header">Resume</div>
+          <div class="card-body">
+            <table class="mb-3">
+              <tr>
+                <td width="80%"><strong>Total: </strong></td>
+                <td>{{total | number: '1.0-2'}}€</td>
+              </tr>
+            </table>
+            <button style="width: 100%" class="btn btn-danger" (click)="finishShopping()">Buy</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

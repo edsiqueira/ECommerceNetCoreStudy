@@ -1,0 +1,57 @@
+<div>
+  <form>
+    <h1 class="h4 mb-3">Register</h1>
+    <label for="name" class="sr-only">Name</label>
+    <input type="text" name="name" placeholder="Enter your name" class="form-control mb-2" required
+           #name="ngModel" [(ngModel)]="user.name" [ngClass]="{ 'is-invalid': name.invalid && (name.dirty || name.touched), 'is-valid': name.valid && (name.dirty || name.touched) }" />
+
+    <div class="invalid-feedback mb-2" *ngIf="name.invalid && (name.dirty || name.touched)">
+      <div *ngIf="name.errors.required">Name is required!</div>
+    </div>
+
+    <label for="lastname" class="sr-only">Lastname</label>
+    <input type="text" name="lastname" placeholder="Enter your lastname" class="form-control mb-2" required
+           #lastname="ngModel" [(ngModel)]="user.lastname" [ngClass]="{'is-invalid': lastname.invalid && (lastname.dirty || lastname.touched), 'is-valid': lastname.valid && (lastname.dirty || lastname.touched)}" />
+
+    <div class="invalid-feedback mb-2" *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)">
+      <div *ngIf="lastname.errors.required">Lastname is required!</div>
+    </div>
+
+    <label for="email" class="sr-only">Email</label>
+    <input type="email" id="email" name="email" placeholder="Enter your email" class="form-control mb-2" email required
+           #email="ngModel" [(ngModel)]="user.email" [ngClass]="{ 'is-invalid': email.invalid && (email.dirty || email.touched), 'is-valid': email.valid && (email.dirty || email.touched)}" />
+
+    <div class="invalid-feedback mb-2" *ngIf="email.invalid && (email.dirty || email.touched)">
+      <div *ngIf="email.errors.required">Email is required!</div>
+    </div>
+
+    <label for="password" class="sr-only">Password</label>
+    <input type="password" name="password" placeholder="Enter your password" class="form-control mb-2" required
+           #password="ngModel" [(ngModel)]="user.password" [ngClass]="{ 'is-invalid': password.invalid && (password.dirty || password.touched), 'is-valid': password.valid && (password.dirty || password.touched) }" />
+
+    <div class="invalid-feedback mb-2" *ngIf="password.invalid && (password.dirty || password.touched)">
+      <div *ngIf="password.errors.required">Password is required!</div>
+    </div>
+
+    <button class="btn btn-primary btn-block mb-3" type="submit" (click)="registerUser()" [disabled]="onLoad">
+      <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="onLoad"></span>Register
+    </button>
+
+
+
+    <div>
+      <a [routerLink]='["/login"]'>Back</a>
+    </div>
+
+    <div class="alert alert-danger" *ngIf="message">
+     {{message}}
+    </div>
+
+
+    <div class="alert alert-success" *ngIf="userRegistred">
+      User registred ! <a [routerLink]='["/login"]'>Click here</a>
+    </div>
+
+  </form>
+</div>
+

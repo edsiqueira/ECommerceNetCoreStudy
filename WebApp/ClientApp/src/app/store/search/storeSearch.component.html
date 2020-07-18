@@ -1,0 +1,22 @@
+
+  <div  *ngIf="!products">
+    Loading products
+  </div>
+
+<div class="container" *ngIf="products">
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let p of products">
+      <a (click)="getDescription(p)">
+        <div class="card">
+          <img class="card-top" style="width: 25%;" src="../../../../../files/{{p.fileName}}" alt="Alternate Text" />
+          <div class="card-body">
+            <h5 class="car-title">{{p.name}}</h5>
+            <div class="card-text">{{p.description}}</div>
+            <h5 class="h5">{{p.value}}</h5>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>
+

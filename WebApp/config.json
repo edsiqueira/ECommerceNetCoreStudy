@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "EFCore": "Data Source=DESKTOP-BL8GKC8;Initial Catalog=EFCore;Trusted_Connection=True;MultipleActiveResultSets=true"
+  }
+}
